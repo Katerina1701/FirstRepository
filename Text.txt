@@ -1,0 +1,31 @@
+var x, y, h, t: real;
+i: integer;
+st: string;
+begin
+st:=' ';
+h:=0.05;
+t:=0;
+ for i := 1 to 20 do
+   begin
+   if (t>=0) and (t<=0.5) then
+      begin
+      x:=cos(2*pi*t);
+      x:=trunc(x*1000)/1000;
+      y:=sin(2*pi*t);
+      y:=trunc(y*1000)/1000;
+      end
+   else
+   if (t>0.5) and (t<=1) then
+      begin
+      x:=4*t-3;
+      x:=trunc(x*1000)/1000;
+      y:=0;
+      end;
+      Memo1.Lines.Add('x='+floattostrF(x,ffFixed,4,3)+
+                   '      y='+ floattostrF(y,ffFixed,6,3));
+   t:=t+h;
+   st:=st+FloatToStr(x)+'    '+FloatToStr(y)+chr(13);
+   end;
+
+
+end;
